@@ -1,11 +1,11 @@
 {
   "name": "robo-robot",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node --inspect=5859 -r ts-node/register ./src/index.ts",
-    "start:watch": "nodemon",
+    "watch": "nodemon",
     "build": "tsc"
   },
   "keywords": [],

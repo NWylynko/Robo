@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/index.ts",
-    "start:watch": "nodemon",
+    "watch": "nodemon",
     "build": "tsc"
   },
   "keywords": [],

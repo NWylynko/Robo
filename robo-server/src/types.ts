@@ -1,10 +1,10 @@
-// export interface ChatMessage {
-//   author: string;
-//   message: string;
-// }
-
 export interface client {
-  identity: string;
-  connected: boolean;
   id: string;
+  identity: identity;
+}
+
+export interface identity {
+  type: string;
+  name: string;
+  version: string;
 }

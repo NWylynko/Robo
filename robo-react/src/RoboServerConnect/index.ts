@@ -1,4 +1,5 @@
 import io from 'socket.io-client';
+import packageJSON from '../../package.json'
 
 export default class roboServer {
   private socket: SocketIOClient.Socket = {} as SocketIOClient.Socket;
@@ -15,15 +16,23 @@ export default class roboServer {
     this.socket.on('connect', () => {
       console.log(`Connected to ${this.link}`)
 
-      this.socket.emit('identify', 'react');
+      this.socket.emit('identify', {type: 'web', name: 'robo-react', version: packageJSON.version});
+
+      this.socket.on('latency', (startTime: any, cb: any) => {
+        cb(startTime);
+      }); 
     })
+
+    this.socket.on('clients-latency', (data: any) => {
+      console.log(data)
+    }); 
 
     this.socket.on('message', (message: string) => {
       console.log(message)
     })
 
     this.socket.on('disconnect', () => {
-      console.warn(`Disconnected to ${this.link}`)
+      console.warn(`Disconnected from ${this.link}`)
     })
 
     this.socket.on('clients', (message: any) => {
