@@ -1,0 +1,38 @@
+nav {
+  font-family: 'Titillium Web', serif;
+  letter-spacing: 1px;
+  font-size: 20px;
+  
+  margin-bottom: 10px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--dark);
+  border-radius: 10px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: var(--light);
+  text-align: center;
+  padding: 14px 16px;
+  /* text-decoration: none; */
+}
+
+li a:hover:not(.active) {
+  background-color: var(--good);
+}
+
+
+.active {
+  background-color: var(--good);
+}

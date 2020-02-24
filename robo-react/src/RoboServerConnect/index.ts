@@ -24,7 +24,7 @@ export default class roboServer {
     })
 
     this.socket.on('clients-latency', (data: any) => {
-      console.log(data)
+      // console.log(data)
     }); 
 
     this.socket.on('message', (message: string) => {

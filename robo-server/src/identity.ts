@@ -44,8 +44,14 @@ export class Identification {
     socket.join(identity.type) // join a room for easy seperation between web and robot clients
     this.clients.push({ id: socket.id, identity }) // add to clients array
     this.BroadcastClients()
-    console.log(`${identity.type} | ${identity.name} | ${identity.version} is Connected`)
+    console.log(`${identity.type} | ${identity.name} | ${identity.version} Connected`)
 
+  }
+
+  private GetClientFromSocket(socket: SocketIO.Socket) {
+    return this.clients.filter(function (obj: client) {
+      return obj.id === socket.id;
+    })[0].identity
   }
 
   private listen() {
@@ -56,6 +62,8 @@ export class Identification {
       });
 
       socket.on('disconnect', () => {
+        const clientInfo = this.GetClientFromSocket(socket)
+        console.log(`${clientInfo.type} | ${clientInfo.name} | ${clientInfo.version} Disconnected`)
         this.removeDeadClient(socket)
         this.BroadcastClients()
       });

@@ -26,11 +26,11 @@ export class roboServer {
     })
 
     this.socket.on('clients-latency', (data) => {
-      console.log(data)
+      // console.log(data)
     }); 
 
     this.socket.on('disconnect', () => {
-      console.warn(`Disconnected to ${this.link}`)
+      console.warn(`Disconnected from ${this.link}`)
     })
 
     this.socket.on('message', (message: any) => {
@@ -38,7 +38,7 @@ export class roboServer {
     })
 
     this.socket.on('clients', (message: any) => {
-      console.log(message)
+      // console.log(message)
     })
 
   } 

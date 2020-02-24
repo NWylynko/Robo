@@ -16,7 +16,7 @@ export class Latency {
    * @param socket the socket the client connects on
    */
   private removeDeadClient(socket: SocketIO.Socket): void {
-    
+    delete(this.latency[socket.id])
   }
 
   /**
